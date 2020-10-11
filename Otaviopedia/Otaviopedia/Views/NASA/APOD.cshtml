@@ -1,0 +1,52 @@
+﻿@using Otaviopedia.Models.NASA
+
+@{
+    ViewData["Title"] = "Home Page";
+    ImageAPOD image = (ImageAPOD)ViewData["APOD"];
+}
+
+<div class="customContainerAPOD">
+    <h3>
+        <i class="fa fa-camera"></i>
+        Picture of day @image.Date.ToString("dd/MM/yyyy")
+    </h3>
+
+    <h4>
+        <i class="fa fa-arrow-right"></i>
+        @image.Title
+    </h4>
+
+    <div>
+        @if (image.MediaType == "image")
+        {
+            <img src="@image.Url" />
+        }
+        else
+        {
+            <iframe id="apod_vid_id" type="text/html" src="@image.Url" width="640" height="385" frameborder="0"></iframe>
+        }
+    </div>
+
+    @if (!String.IsNullOrEmpty(image.Copyright))
+    {
+        <div>
+            <small>
+                <b>Copyright:</b>
+                @image.Copyright
+            </small>
+        </div>
+    }
+
+
+    <p>
+        @image.Description
+    </p>
+
+    <div>
+        <small>
+            <b>Source:</b>
+            <a target="_blank" href="@image.SourceAPI">@image.SourceAPI</a>
+        </small>
+    </div>
+
+</div>
