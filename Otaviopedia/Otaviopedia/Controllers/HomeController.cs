@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Otaviopedia.Models;
 using Otaviopedia.Models.NASA;
+using Otaviopedia.Models.SPACE_X;
 
 namespace Otaviopedia.Controllers
 {
@@ -32,9 +33,12 @@ namespace Otaviopedia.Controllers
             return View("~/Views/NASA/APOD.cshtml");
         }
 
-        public IActionResult Privacy()
+        public IActionResult SpaceXGetCrew()
         {
-            return View();
+            SpaceXModel spacex = new SpaceXModel();
+            ViewData["crew"] = spacex.GetCrew();
+
+            return View("~/Views/SpaceX/Crew.cshtml");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

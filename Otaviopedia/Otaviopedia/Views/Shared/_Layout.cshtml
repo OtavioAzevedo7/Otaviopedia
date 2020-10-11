@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href='@Url.Content("~/globe.ico")'>
 </head>
 <body>
     <header>
@@ -26,6 +27,7 @@
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Things about Universe</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" asp-controller="Home" asp-action="NASAAPOD"><i class="fa fa-space-shuttle"></i>NASA</a>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="SpaceXGetCrew"><i class="fa fa-space-shuttle"></i>SpaceX</a>
                             </div>
                         </li>
 
