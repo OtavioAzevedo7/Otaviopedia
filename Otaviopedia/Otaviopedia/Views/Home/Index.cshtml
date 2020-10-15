@@ -1,8 +1,30 @@
-﻿@{
+﻿@using Otaviopedia.Models.OxfordDictionary
+
+@{
     ViewData["Title"] = "Home Page";
+    Dictionary dictEncyclopedia = (Dictionary)ViewData["dictEncyclopedia"];
+    Dictionary dictAPI = (Dictionary)ViewData["dictAPI"];
 }
 
 <div class="homepage">
     <h1 class="display-4">Welcome to Otáviopedia</h1>
+
+    <div>
+        <span><b>@dictEncyclopedia.Word: </b><i>@dictEncyclopedia.Definition</i></span>
+        <i class="fa fa-plus"></i>
+        <span><b>@dictAPI.Word.ToUpper(): </b><i>@dictAPI.Definition</i></span>
+        <i><b>=</b></i>
+        <span><b>Otáviopedia: </b><i>["a web site with any content about anything based on free public APIs available in the world developed with .net core 3.1"]</i></span>
+    </div>
+
+    <div class="sourceAPI">
+        <small>
+            <b>Source:</b>
+            <a target="_blank" href="@dictEncyclopedia.SourceAPI">@dictEncyclopedia.SourceAPI - (@dictEncyclopedia.Provider)</a>
+        </small>
+    </div>
+
+    <br />
+   
 </div>
 

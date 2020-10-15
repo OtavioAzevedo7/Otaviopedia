@@ -7,7 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Otaviopedia.Models;
+using Otaviopedia.Models.COVID;
 using Otaviopedia.Models.NASA;
+using Otaviopedia.Models.OxfordDictionary;
 using Otaviopedia.Models.SPACE_X;
 
 namespace Otaviopedia.Controllers
@@ -23,6 +25,9 @@ namespace Otaviopedia.Controllers
 
         public IActionResult Index()
         {
+            OxfordModel oxford = new OxfordModel();
+            ViewData["dictEncyclopedia"] = oxford.GetDefinitionByWord("encyclopedia");
+            ViewData["dictAPI"] = oxford.GetDefinitionByWord("API");
             return View();
         }
 
@@ -39,6 +44,14 @@ namespace Otaviopedia.Controllers
             ViewData["crew"] = spacex.GetCrew();
 
             return View("~/Views/SpaceX/Crew.cshtml");
+        }
+
+        public IActionResult COVIDGetCasesByCountry()
+        {
+            COVIDModel covid = new COVIDModel();
+            ViewData["cases"] = covid.GetCasesByCountry();
+
+            return View("~/Views/COVID/CasesByCountry.cshtml");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
