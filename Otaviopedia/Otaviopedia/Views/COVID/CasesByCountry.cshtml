@@ -4,6 +4,7 @@
     ViewData["Title"] = "CasesByCountry";
 
     List<CasesByCountry> cases = (List<CasesByCountry>)ViewData["cases"];
+    string sourceAPI = ViewData["sourceAPI"].ToString();
 }
 
 <div class="customContainerContent">
@@ -52,7 +53,7 @@
     <div class="sourceAPI">
         <small>
             <b>Source:</b>
-            <a target="_blank" href="@cases[0].SourceAPI">@cases[0].SourceAPI - (Worldometers)</a>
+            <a target="_blank" href="@sourceAPI">@sourceAPI - (Worldometers)</a>
         </small>
     </div>
 </div>

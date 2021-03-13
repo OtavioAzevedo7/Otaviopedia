@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Home Page";
     ImageAPOD image = (ImageAPOD)ViewData["APOD"];
+    string sourceAPI = ViewData["sourceAPI"].ToString();
 }
 
 <div class="customContainerContent">
@@ -45,7 +46,7 @@
     <div class="sourceAPI">
         <small>
             <b>Source:</b>
-            <a target="_blank" href="@image.SourceAPI">@image.SourceAPI</a>
+            <a target="_blank" href="@sourceAPI">@sourceAPI</a>
         </small>
     </div>
 

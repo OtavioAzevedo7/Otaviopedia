@@ -4,6 +4,7 @@
     ViewData["Title"] = "Crew";
 
     List<Crew> crewList = (List<Crew>)ViewData["crew"];
+    string sourceAPI = ViewData["sourceAPI"].ToString();
 }
 
 <div class="customContainerContent">
@@ -52,7 +53,7 @@
     <div class="sourceAPI">
         <small>
             <b>Source:</b>
-            <a target="_blank" href="@crewList[0].SourceAPI">@crewList[0].SourceAPI</a>
+            <a target="_blank" href="@sourceAPI">@sourceAPI</a>
         </small>
     </div>
 

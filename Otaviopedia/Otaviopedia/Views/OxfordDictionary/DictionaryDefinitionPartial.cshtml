@@ -1,0 +1,40 @@
+@model Otaviopedia.Models.OxfordDictionary.Dictionary
+
+@{
+    var result = new Otaviopedia.Models.OxfordDictionary.Dictionary();
+    if(ViewData["dictResult"] != null)
+    {
+        result = (Otaviopedia.Models.OxfordDictionary.Dictionary)ViewData["dictResult"];
+    }
+}
+
+
+@if(!String.IsNullOrEmpty(result.Word))
+{
+
+    @foreach (System.Reflection.PropertyInfo propertyInfo in result.GetType().GetProperties())
+    {
+    <p class="dictResult">
+
+        @{
+            if(@propertyInfo.Name == "AudioFile")
+            {
+            <audio controls autoplay>
+            <source src="@propertyInfo.GetValue(result,null)" type="audio/mpeg">
+            Your browser does not support the audio element.
+            </audio>
+            }else{
+
+            <b>@propertyInfo.Name:</b>
+            @propertyInfo.GetValue(result,null)
+            }
+        }
+    </p>
+    }
+
+}else{
+    <br/>
+    <div class="alert alert-danger alert-dismissible fade show">
+    <strong>Try a new word please</strong>
+    </div>
+}

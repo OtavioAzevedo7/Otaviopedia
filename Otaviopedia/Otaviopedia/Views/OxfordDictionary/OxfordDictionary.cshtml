@@ -1,0 +1,52 @@
+﻿@using Otaviopedia.Models.OxfordDictionary
+
+@{
+    ViewData["Title"] = "Home Page";
+    string sourceAPI = ViewData["sourceAPI"].ToString();
+}
+
+<div class="customContainerContent">
+
+
+     <h3>
+        <i class="fa fa-book"></i>
+        Oxford English Dictionary
+    </h3>
+    
+<div class="searchContainer">
+    <input class="searchInput" onchange="searchWord(this)" type="text" placeholder="Type a word and press enter" />
+</div>
+
+
+<div id="dictResult">
+
+</div>
+        <div class="sourceAPI">
+            <small>
+                <b>Source:</b>
+                <a target="_blank" href="@sourceAPI">@sourceAPI</a>
+            </small>
+        </div>    
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        function searchWord(input) {
+        
+        if(input.value != '')
+        {
+            var url = window.location.origin + '/home/GetDefinitionByWord';
+
+            url += '?word=' + input.value;
+
+            $.ajax({
+                url: url,
+                type: 'GET',
+                success: function (data) {
+                    $("#dictResult").html(data);
+                }
+                });
+            }
+        }
+    </script>
+}

@@ -17,6 +17,5 @@ namespace Otaviopedia.Models.COVID
         public string Continent { get; set; }
         public int OneCasePerPeople { get; set; }
         public int OneDeathPerPeople { get; set; }
-        public string SourceAPI { get; set; }
     }
 }

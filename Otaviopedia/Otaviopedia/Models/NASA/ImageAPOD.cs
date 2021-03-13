@@ -13,7 +13,6 @@ namespace Otaviopedia.Models.NASA
         public string Url { get; set; }
         public string MediaType { get; set; }
         public string Copyright { get; set; }
-        public string SourceAPI { get; set; }
     }
 }
 

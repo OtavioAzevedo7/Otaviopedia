@@ -8,13 +8,12 @@ namespace Otaviopedia.Models.OxfordDictionary
     public class Dictionary
     {
         
-        public string Word { get; set; }
-        public string Provider { get; set; }
-        public string Etymologies { get; set; }
         public string AudioFile { get; set; }
-        public string PhoneticSpelling { get; set; }
         public string Definition { get; set; }
         public string ShortDefinition { get; set; }
-        public string SourceAPI { get; set; }
+        public string Etymologies { get; set; }
+        public string PhoneticSpelling { get; set; }
+        public string Provider { get; set; }
+        public string Word { get; set; }
     }
 }

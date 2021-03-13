@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Otaviopedia.HttpClients;
 
 namespace Otaviopedia
 {
@@ -24,6 +25,12 @@ namespace Otaviopedia
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
+            //Custom clients
+            services.AddHttpClient<CovidClient>();
+            services.AddHttpClient<NasaClient>();
+            services.AddHttpClient<SpaceXClient>();
+            services.AddHttpClient<OxfordDictionaryClient>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
